@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cars & Models</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>CarValueHub</h2>
+
+    <a href="/">Home</a>
+    <a href="/cars">Cars & Models</a>
+    <a href="/how">How It Works</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <h1>Cars & Models</h1>
+
+    {% for company, models in grouped_data.items() %}
+
+    <div class="dropdown">
+
+        <!-- BUTTON -->
+        <div class="dropdown-btn" onclick="toggleDropdown(this)">
+            <span>{{ company }}</span>
+            <span class="arrow">▼</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="dropdown-content">
+            {% for model in models %}
+            <p>{{ model }}</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+function toggleDropdown(element){
+    let content = element.nextElementSibling;
+    let arrow = element.querySelector(".arrow");
+
+    if(content.style.display === "block"){
+        content.style.display = "none";
+        arrow.innerHTML = "▼";
+    } else {
+        content.style.display = "block";
+        arrow.innerHTML = "▲";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Predict Price</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>CarValueHub</h2>
+
+    <a href="/">Home</a>
+    <a href="/cars">Cars & Models</a>
+    <a href="/how">How It Works</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <h1>Predict Car Price</h1>
+
+    <div class="form-box">
+
+        <form id="predictForm">
+
+            <label>Select Company:</label>
+            <select name="company">
+                {% for company in companies %}
+                <option value="{{company}}">{{company}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Select Model:</label>
+            <select name="car_models">
+                {% for model in car_models %}
+                <option value="{{model}}">{{model}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Select Year:</label>
+            <select name="year">
+                {% for year in years %}
+                <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Select Fuel Type:</label>
+            <select name="fuel_type">
+                {% for fuel in fuel_types %}
+                <option value="{{fuel}}">{{fuel}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Kilometers Driven:</label>
+            <input type="number" name="kilo_driven" required>
+
+            <button type="submit">Predict Price</button>
+
+        </form>
+
+        <!-- RESULT -->
+        <h2 id="prediction"></h2>
+
+    </div>
+
+</div>
+
+
+<!-- SCRIPT FOR LIVE PREDICTION -->
+<script>
+document.getElementById("predictForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch("/predict", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("prediction").innerHTML =
+            "Estimated Price: ₹ " + data;
+    });
+});
+</script>
+
+</body>
+</html>

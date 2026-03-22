@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How It Works</title>
+
+    <!-- THIS LINE WAS MISSING -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>CarValueHub</h2>
+
+    <a href="/home">Home</a>
+    <a href="/cars">Cars & Models</a>
+    <a href="/how">How It Works</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <div class="info-box">
+
+        <h1>How It Works</h1>
+
+        <p>
+            Our system uses a <b>Machine Learning model</b> to estimate the market value of a car based on important features.
+        </p>
+
+        <h3>Input Factors</h3>
+        <ul>
+            <li>Car Company (e.g., Hyundai, BMW)</li>
+            <li>Car Model (e.g., i20, X5)</li>
+            <li>Year of Purchase</li>
+            <li>Fuel Type (Petrol / Diesel)</li>
+            <li>Kilometers Driven</li>
+        </ul>
+
+        <h3>How Prediction Works</h3>
+        <ul>
+            <li>The model is trained on historical car sales data</li>
+            <li>It identifies patterns between features and price</li>
+            <li>Each feature contributes differently to the final value</li>
+            <li>The system compares your inputs with learned data patterns</li>
+        </ul>
+
+        <h3>Output</h3>
+        <ul>
+            <li>Provides an estimated resale price</li>
+            <li>Gives a quick and data-driven valuation</li>
+            <li>Helps in making better buying/selling decisions</li>
+        </ul>
+
+    </div>
+
+</div>
+
+</body>
+</html>

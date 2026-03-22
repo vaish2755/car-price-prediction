@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CarValueHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>CarValueHub</h2>
+
+    <a href="/home">Home</a>
+    <a href="/cars">Cars & Models</a>
+    <a href="/how">How It Works</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- HERO SECTION -->
+    <div class="hero-box">
+
+        <h1>Know Your Car's True Value</h1>
+
+        <p class="hero-text">
+            Our Car Price Prediction system helps users estimate the fair market value of a used car 
+            using key vehicle details. By analyzing factors like company, model, fuel type, and kilometers driven, 
+            our machine learning model provides accurate and data-driven price predictions.
+        </p>
+
+        <a href="/prediction">
+            <button class="hero-btn">Predict Now</button>
+        </a>
+
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <div class="features">
+
+        <div class="feature-box">
+            <h3>⚡ Fast Prediction</h3>
+            <p>Get instant car price results in seconds</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>🤖 ML Powered</h3>
+            <p>Uses Machine Learning for accuracy</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>📊 Data Driven</h3>
+            <p>Based on real historical car data</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
